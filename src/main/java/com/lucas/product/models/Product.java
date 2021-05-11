@@ -24,10 +24,13 @@ public class Product {
     @Enumerated(value = EnumType.STRING)
     private List<MeatType> meatTypes;
     @Enumerated(value = EnumType.STRING)
-    @Column(name = "category")
-    private Category category;
+    @Column(name = "product_category")
+    private ProductCategory productCategory;
     @Column(name = "short_name")
     private String shortName;
+    @Enumerated(value = EnumType.STRING)
+    @Column(name = "quantity_measurement")
+    private QuantityMeasurement quantityMeasurement;
 
     public Product() {
 

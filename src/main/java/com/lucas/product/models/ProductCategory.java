@@ -1,6 +1,6 @@
 package com.lucas.product.models;
 
-public enum Category {
+public enum ProductCategory {
     BBQ,
     GOURMET,
     VLEESWAREN,
