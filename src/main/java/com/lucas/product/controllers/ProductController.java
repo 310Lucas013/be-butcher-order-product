@@ -5,10 +5,7 @@ import com.lucas.product.services.ProductService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping(value = "/products")
@@ -22,5 +19,15 @@ public class ProductController {
     @PostMapping
     public ResponseEntity<?> createProduct(@RequestBody ProductDto productDto) {
         return new ResponseEntity<>(productService.createProduct(productDto), HttpStatus.CREATED);
+    }
+
+    @GetMapping(value = "/{id}")
+    public ResponseEntity<?> getProductById(@PathVariable("id") Long id) {
+        return new ResponseEntity<>(productService.getProductById(id), HttpStatus.OK);
+    }
+
+    @GetMapping
+    public ResponseEntity<?> getProducts() {
+        return new ResponseEntity<>(productService.getAllProducts(), HttpStatus.OK);
     }
 }
